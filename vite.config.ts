@@ -29,6 +29,11 @@ export default defineConfig(({ mode }) => {
         '/api': _env.VITE_API_URL,
       },
     },
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './src/setup-tests.ts',
+    },
     build: {
       assetsDir: 'static',
       rollupOptions: {

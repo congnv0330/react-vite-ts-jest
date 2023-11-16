@@ -4,11 +4,11 @@ import { Button } from './Button';
 
 describe('Button', () => {
   it('Button show correct children', async () => {
-    render(<Button>Button</Button>);
+    const { findByRole } = render(<Button>Button</Button>);
 
-    const element = await screen.findByRole('button');
+    const element = await findByRole('button');
 
-    expect(element).toHaveTextContent('Button');
+    expect(element.textContent).toBe('Button');
   });
 
   it('Button is disabled', async () => {
@@ -20,6 +20,6 @@ describe('Button', () => {
 
     const element = await screen.findByRole('button');
 
-    expect(element).toBeDisabled();
+    expect(element.hasAttribute('disabled')).toBe(true);
   });
 });
