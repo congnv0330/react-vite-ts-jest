@@ -19,6 +19,11 @@ Runs the app in the development mode
 npm run dev
 ```
 
+Runs test in the app
+```
+npm run test
+```
+
 Builds the app for production to the `dist` folder
 ```
 npm run build
