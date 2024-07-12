@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { Button } from './Button';
@@ -13,13 +13,13 @@ describe('Button', () => {
   });
 
   it('Button is disabled', async () => {
-    render(
+    const { findByRole } = render(
       <Button role="button" disabled>
         Disabled
       </Button>,
     );
 
-    const element = await screen.findByRole('button');
+    const element = await findByRole('button');
 
     expect(element.hasAttribute('disabled')).toBe(true);
   });
